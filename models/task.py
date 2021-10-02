@@ -1,7 +1,5 @@
 from shared.models import db
-from dataclasses import dataclass
 
-@dataclass
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), nullable=False)
@@ -10,3 +8,10 @@ class Task(db.Model):
     def __init__(self, name, completed):
         self.name = name
         self.completed = completed
+
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'completed': self.completed
+        }
