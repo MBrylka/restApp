@@ -3,7 +3,7 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
 from shared.models import db
-from basicCrud import Tasks, TaskList
+from basicCrud import Tasks, TaskList, TaskListList
 
 class FlaskApi():
 
@@ -28,5 +28,6 @@ if __name__ == '__main__':
     flaskApi = FlaskApi()
     flaskApi.addResource(Tasks, '/tasks/<task_id>')
     flaskApi.addResource(TaskList, '/tasks')
+    flaskApi.addResource(TaskListList, '/taskLists')
 
     flaskApi.run()

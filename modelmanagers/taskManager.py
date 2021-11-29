@@ -16,8 +16,9 @@ class TaskManager(BaseManager):
     def add(self, args):
         name = args['name']
         completed = eval(args['completed'])
+        tasklist_id = eval(args['tasklist_id'])
         
-        task = Task(name, completed)
+        task = Task(name, completed, tasklist_id)
         db.session.add(task)
         db.session.commit()
 
